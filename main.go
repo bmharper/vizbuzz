@@ -16,9 +16,10 @@ import (
 	"github.com/gorilla/websocket"
 )
 
-type RingJSON struct {
-	Vertices [][]float64 `json:"vertices"`
-}
+//type RingJSON struct {
+//	Vertices [][]float64 `json:"vertices"`
+//}
+type RingJSON [][]float64
 
 type PolygonJSON struct {
 	Rings []*RingJSON `json:"rings"`
@@ -111,6 +112,9 @@ func (a *App) GetFiles() *GetFilesJSON {
 	resp := &GetFilesJSON{}
 	resp.Files = []*VizFileJSON{}
 	walker := func(path string, info fs.FileInfo, err error) error {
+		if err != nil {
+			return err
+		}
 		//fmt.Printf("%v %v\n", path, info)
 		if info.IsDir() {
 			return nil

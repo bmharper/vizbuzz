@@ -69,7 +69,7 @@ export class Draw {
 			rs.cx.fill();
 			rs.cx.stroke();
 
-			this.haloText(rs, vx.x, vx.y, `(vertex ${this.hot.vertex})    ${vxW.x}, ${vxW.y}`);
+			this.haloText(rs, vx.x, vx.y, `(${this.hot.el!.filename} vertex ${this.hot.vertex})    ${vxW.x}, ${vxW.y}`);
 		}
 	}
 

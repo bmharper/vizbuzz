@@ -41,7 +41,7 @@ export class Ring {
 
 	static fromJSON(j: any): Ring {
 		let r = new Ring();
-		for (let vx of j.vertices) {
+		for (let vx of j) {
 			let v = new Vec2(0, 0);
 			v.x = vx[0];
 			v.y = vx[1];
