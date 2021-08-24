@@ -6,9 +6,11 @@ and I want to visualize the state of the geometry at some particular point in ti
 end up building a throw-away tool for the job, but after building and throwing many of these away,
 I decided to build something reusable. Hence VizBuzz was born.
 
+![Screenshot](img/screenshot1.webp?raw=true)
+
 ## How it works
-VizBuzz works by monitoring a directory on your filesystem. Whenever the files in that directory
-change, it notifies the web app, which then reloads all of the content to be visualized.
+VizBuzz is a web app combined with a native app. The native app monitors a directory on your filesystem. Whenever the files in that directory
+change, it notifies the web app, which then reloads all of the content to be visualized. The web app talks to localhost - data never leaves your computer.
 
 The files are JSON with a particular format. For example, this will show a rotated square:
 
@@ -23,9 +25,9 @@ You can generate the JSON yourself, or you can use the helper libraries.
 This example uses the C++ helper library (which is a header-only single file library):
 
 ```cpp
-vizbuzz::File file;
-double        vertices[] = {4, 0, 3, 1, 2, 0}; // Pairs of XY which form a triangle
-file.Add(vizbuzz::Polygon::XY(3, vertices));
+vb::File file;
+double   vertices[] = {4, 0, 3, 1, 2, 0}; // Pairs of XY which form a triangle
+file.Add(vb::Polygon::XY(3, vertices));
 file.Save("example-data/demo-cpp.json");
 ```
 

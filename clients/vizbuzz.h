@@ -1,10 +1,14 @@
 #ifndef VIZZBUZZ_H_INCLUDED
 #define VIZZBUZZ_H_INCLUDED
 
+#ifndef VIZZBUZZ_NAMESPACE
+#define VIZZBUZZ_NAMESPACE vb
+#endif
+
 #include <string>
 #include <vector>
 
-namespace vizbuzz {
+namespace VIZZBUZZ_NAMESPACE {
 
 class Vec3 {
 public:
@@ -107,6 +111,6 @@ public:
 	}
 };
 
-} // namespace vizbuzz
+} // namespace VIZZBUZZ_NAMESPACE
 
 #endif
