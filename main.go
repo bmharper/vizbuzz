@@ -130,6 +130,7 @@ func (a *App) GetFiles() *GetFilesJSON {
 			if file, err := os.Open(path); err != nil {
 				return err
 			} else {
+				defer file.Close()
 				if err = json.NewDecoder(file).Decode(jfile); err != nil {
 					return err
 				}
